@@ -18,6 +18,7 @@
 /coverage
 
 # builds
+/build
 /dts
 
 # misc
