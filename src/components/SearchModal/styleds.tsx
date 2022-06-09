@@ -1,24 +1,25 @@
-import { LoadingRows as BaseLoadingRows } from 'components/Loader/styled'
-import styled from 'styled-components/macro'
-
+import styled from 'styled-components'
 import { AutoColumn } from '../Column'
-import { RowBetween } from '../Row'
+import { RowBetween, RowFixed } from '../Row'
 
-export const TextDot = styled.div`
-  height: 3px;
-  width: 3px;
-  background-color: ${({ theme }) => theme.text2};
-  border-radius: 50%;
+export const ModalInfo = styled.div`
+  ${({ theme }) => theme.flexRowNoWrap}
+  align-items: center;
+  padding: 1rem 1rem;
+  margin: 0.25rem 0.5rem;
+  justify-content: center;
+  flex: 1;
+  user-select: none;
 `
 
-export const Checkbox = styled.input`
-  border: 1px solid ${({ theme }) => theme.red3};
-  height: 20px;
-  margin: 0;
+export const FadedSpan = styled(RowFixed)`
+  color: ${({ theme }) => theme.primary1};
+  font-size: 14px;
 `
 
 export const PaddedColumn = styled(AutoColumn)`
   padding: 20px;
+  padding-bottom: 12px;
 `
 
 export const MenuItem = styled(RowBetween)`
@@ -72,26 +73,4 @@ export const SeparatorDark = styled.div`
   width: 100%;
   height: 1px;
   background-color: ${({ theme }) => theme.bg3};
-`
-
-export const LoadingRows = styled(BaseLoadingRows)`
-  grid-column-gap: 0.5em;
-  grid-template-columns: repeat(12, 1fr);
-  max-width: 960px;
-  padding: 12px 20px;
-
-  & > div:nth-child(4n + 1) {
-    grid-column: 1 / 8;
-    height: 1em;
-    margin-bottom: 0.25em;
-  }
-  & > div:nth-child(4n + 2) {
-    grid-column: 12;
-    height: 1em;
-    margin-top: 0.25em;
-  }
-  & > div:nth-child(4n + 3) {
-    grid-column: 1 / 4;
-    height: 0.75em;
-  }
 `

@@ -1,6 +1,5 @@
 import React from 'react'
-import styled from 'styled-components/macro'
-
+import styled from 'styled-components'
 import { ExternalLink } from '../../theme'
 
 const InfoCard = styled.button<{ active?: boolean }>`
@@ -63,7 +62,7 @@ const CircleWrapper = styled.div`
 
 const HeaderText = styled.div`
   ${({ theme }) => theme.flexRowNoWrap};
-  color: ${(props) => (props.color === 'blue' ? ({ theme }) => theme.primary1 : ({ theme }) => theme.text1)};
+  color: ${props => (props.color === 'blue' ? ({ theme }) => theme.primary1 : ({ theme }) => theme.text1)};
   font-size: 1rem;
   font-weight: 500;
 `
@@ -74,7 +73,7 @@ const SubHeader = styled.div`
   font-size: 12px;
 `
 
-const IconWrapper = styled.div<{ size?: number | null }>`
+const IconWrapper = styled.div<{ size?: number }>`
   ${({ theme }) => theme.flexColumnNoWrap};
   align-items: center;
   justify-content: center;
@@ -91,14 +90,14 @@ const IconWrapper = styled.div<{ size?: number | null }>`
 export default function Option({
   link = null,
   clickable = true,
-  size,
+  size = null,
   onClick = null,
   color,
   header,
   subheader = null,
   icon,
   active = false,
-  id,
+  id
 }: {
   link?: string | null
   clickable?: boolean
